@@ -35,7 +35,7 @@ group :development, :test do
   gem 'dotenv-rails'
 
   # settings
-  gem 'config'
+  gem 'config', github: 'railsconfig/config'
 end
 
 group :development do
