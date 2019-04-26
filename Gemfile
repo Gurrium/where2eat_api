@@ -21,9 +21,21 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # db
 gem 'ridgepole'
 
+# api
+gem 'faraday'
+
+# serializer
+gem 'active_model_serializers'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # environment variables
+  gem 'dotenv-rails'
+
+  # settings
+  gem 'config'
 end
 
 group :development do
