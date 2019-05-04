@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'RestaurantsController' do
   describe 'GET /restaurants' do
-    include_examples 'returns 200' do
-      it 'also returns restaurants data' do
-        expect(json).to have_key(:id)
-        expect(json).to have_key(:name)
-        expect(json).to have_key(:image_url)
-      end
+    it 'also returns restaurants data' do
+      is_expected.to eq 200
+
+      expect(json[0]).to have_key('gurunavi_id')
+      expect(json[0]).to have_key('name')
+      expect(json[0]).to have_key('image_url')
     end
   end
 

@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "gurunavi_id"
+    t.string "address"
+    t.string "phone_number"
+    t.string "url"
+    t.string "image_url"
   end
 
 end

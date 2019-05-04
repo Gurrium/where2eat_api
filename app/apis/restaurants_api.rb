@@ -1,10 +1,10 @@
 class RestaurantsApi
   def initialize
-    @conn = Faraday.new(url: Settings.gurunavi['base_url']) do |faraday|
+    @conn = Faraday.new(url: Settings.gurunavi.base_url) do |faraday|
               faraday.response :logger
               faraday.adapter Faraday.default_adapter
               faraday.headers['Content-Type'] = 'application/json'
-              faraday.params['keyid'] = Settings.gurunavi['api_key']
+              faraday.params['keyid'] = Settings.gurunavi.api_key
             end
   end
 
@@ -12,7 +12,6 @@ class RestaurantsApi
     response = @conn.get do |req|
                  req.params['areacode_s'] = 'AREAS2818'
                end
-    response.body
-    # 取得したレストランをjsonにパースして返す
+    JSON.parse(response.body)['rest']
   end
 end
