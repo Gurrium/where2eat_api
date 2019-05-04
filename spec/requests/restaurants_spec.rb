@@ -11,8 +11,10 @@ RSpec.describe 'RestaurantsController' do
     end
   end
 
-  describe 'GET /restaurants/:id' do
-    context ':id is exist' do
+  describe 'GET /restaurants/:areacode_s' do
+    context 'when :areacode_s exists' do
+      let(:areacode_s) { 'AREAS2818' }
+
       include_examples 'returns 200' do
         it 'also returns the restaurant detail' do
           expect(json).to have_key(:name)
@@ -24,7 +26,7 @@ RSpec.describe 'RestaurantsController' do
       end
     end
 
-    context ':id is not exist' do
+    context 'when :areacode_s does not exist' do
       include_examples 'returns 404'
     end
   end
