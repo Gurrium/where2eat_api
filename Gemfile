@@ -55,6 +55,7 @@ group :development do
 end
 
 group :test do
+  gem 'rspec-request_describer', '~> 0.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
