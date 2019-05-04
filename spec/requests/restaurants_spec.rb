@@ -11,23 +11,25 @@ RSpec.describe 'RestaurantsController' do
     end
   end
 
-  describe 'GET /restaurants/:areacode_s' do
-    context 'when :areacode_s exists' do
-      let(:areacode_s) { 'AREAS2818' }
+  describe 'GET /restaurants/:id' do
+    context 'when :id exists' do
+      let(:id) { 'gddb600' }
 
-      include_examples 'returns 200' do
-        it 'also returns the restaurant detail' do
-          expect(json).to have_key(:name)
-          expect(json).to have_key(:address)
-          expect(json).to have_key(:phone_number)
-          expect(json).to have_key(:url)
-          expect(json).to have_key(:image_url)
-        end
+      it 'also returns the restaurant detail' do
+        is_expected.to eq 200
+
+        expect(json).to have_key('name')
+        expect(json).to have_key('address')
+        expect(json).to have_key('phone_number')
+        expect(json).to have_key('url')
+        expect(json).to have_key('image_url')
       end
     end
 
-    context 'when :areacode_s does not exist' do
-      include_examples 'returns 404'
+    context 'when :id does not exist' do
+      let(:id) { 'aaaa000' }
+
+      it { is_expected.to eq 404 }
     end
   end
 end
